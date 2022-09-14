@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-export default class Contenedor {
+class Contenedor {
     constructor(nombreArchivo) {
         this.nombreArchivo = nombreArchivo;
     }
@@ -70,3 +70,22 @@ export default class Contenedor {
         await this.saveOnFile("[]");
     }
 }
+
+// let contenedor = new Contenedor("productos.txt");
+
+// //COMANDOS DE PRUEBA
+
+// //Agregando productos (DESCOMENTAR PARA VERIFICAR)
+// contenedor.save({
+//     title: 'Regla',
+//     price: 123.45,
+//     thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png'});
+
+//Obteniendo el objeto 2 del listado guardado (DESCOMENTAR PARA VERIFICAR)
+//console.log(contenedor.getById(2));
+
+//Eliminando el objeto 2 del listado guardado (DESCOMENTAR PARA VERIFICAR)
+//contenedor.deleteById(2);
+
+//Eliminando todos los objetos del listado guardado (DESCOMENTAR PARA VERIFICAR)
+//contenedor.deleteAll();
