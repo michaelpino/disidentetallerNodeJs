@@ -1,0 +1,20 @@
+h1(class="text-2xl text-center") Vista de productos
+br
+
+if mostrarProductos
+    div(class="overflow-x-auto relative")
+        table(class="w-full text-sm text-left text-gray-500 dark:text-gray-400")
+            thead(class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400")
+                tr
+                    th(scope="col" class="py-3 px-6 rounded-l-lg") Nombre del producto
+                    th(scope="col" class="py-3 px-6") Precio
+                    th(scope="col" class="py-3 px-6 rounded-r-lg") Foto
+            each producto in productos
+                tr(class="bg-white dark:bg-gray-800")
+                    td(scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white")=producto.title
+                    td(scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white")=producto.price
+                    td(scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white")
+                        img(width="30" src=producto.thumbnail)
+else
+    div(class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert") No se encontraron productos registrados
+
