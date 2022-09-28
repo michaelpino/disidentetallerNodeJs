@@ -1,0 +1,42 @@
+<h1> Vista de productos</h1>
+<br>
+
+{{#if mostrarProductos}}
+    <div class="overflow-x-auto relative">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6 rounded-l-lg">
+                        Nombre del producto
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Precio
+                    </th>
+                    <th scope="col" class="py-3 px-6 rounded-r-lg">
+                        Foto
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each productos}}
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{this.title}}
+                        </th>
+                        <td class="py-4 px-6">
+                            ${{this.price}}
+                        </td>
+                        <td class="py-4 px-6">
+                            <img width="30" src={{this.thumbnail}}>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{else}}
+<div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+  No se encontraron productos registrados
+</div>
+{{/if}}
+
