@@ -35,7 +35,7 @@
         </div>
     </form>
     <br>
-    <h2> Vista de productos</h2>
+    <h2 class="text-2xl  font-bold"> Vista de productos</h2>
     <br>
 
     <div class="overflow-x-auto relative">
@@ -53,11 +53,36 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                    <tr id="listado_productos" class="bg-white dark:bg-gray-800">
-                    </tr>
+            <tbody id="listado_productos">
+
             </tbody>
         </table>
+    </div>
+
+    <br>
+
+    <h2 class="text-2xl  font-bold"> Centro de mensajes </h2>
+    <form onsubmit="return agregaMensaje(this)">
+        <div class="bg-neutral px-4 py-5 sm:p-6">
+            <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3">
+                    <label for="email_chat" class="text-m font-medium text-gray-700">Email:</label>
+                    <input class="mt-1 rounded-sm border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" type="text" id="chat-email_input" name="email_chat" required>
+                </div>
+                <div class="col-span-3">
+                    <label for="mensaje_chat" class="text-m font-medium text-gray-700">Mensaje:</label>
+                    <input class="mt-1 rounded-sm border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" type="text" id="chat-mensaje_input" name="mensaje_chat">
+                </div>
+                <div class="col-span-3 sm:col-span-3">
+                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Enviar mensaje</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    
+    <div id="chat">
+
     </div>
 </body>
 </html>
