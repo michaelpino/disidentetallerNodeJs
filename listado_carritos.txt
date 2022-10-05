@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "timeStamp": 1665009237650,
+    "productos": []
+  },
+  {
+    "id": 2,
+    "timeStamp": 1665009238038,
+    "productos": [
+      {
+        "nombre": "7up",
+        "descripcion": "Un objeto como cualquiera",
+        "codigo": 12345,
+        "foto": "https://jumpseller.cl/generated/images/learn/ideal-products-2021/selling-online-1000-d40f65cb9.webp",
+        "precio": 22,
+        "stock": 4,
+        "id": 3,
+        "timeStamp": 1664947452100
+      },
+      {
+        "nombre": "Coca-cola",
+        "descripcion": "Un objeto como cualquiera",
+        "codigo": 12345,
+        "foto": "https://jumpseller.cl/generated/images/learn/ideal-products-2021/selling-online-1000-d40f65cb9.webp",
+        "precio": 22,
+        "stock": 4,
+        "id": 2,
+        "timeStamp": 1664947430336
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "timeStamp": 1665009239432,
+    "productos": [
+      {
+        "nombre": "7up",
+        "descripcion": "Un objeto como cualquiera",
+        "codigo": 12345,
+        "foto": "https://jumpseller.cl/generated/images/learn/ideal-products-2021/selling-online-1000-d40f65cb9.webp",
+        "precio": 22,
+        "stock": 4,
+        "id": 3,
+        "timeStamp": 1664947452100
+      }
+    ]
+  }
+]
