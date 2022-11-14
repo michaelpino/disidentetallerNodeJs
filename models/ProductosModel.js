@@ -7,7 +7,7 @@ const productoSchema = new mongoose.Schema({
     foto: String,
     precio: Number,
     stock: Number,
-    timestamp: String
+    timeStamp: String
 })
 
 const ProductoModel = mongoose.model("productos", productoSchema);
