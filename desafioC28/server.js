@@ -1,4 +1,5 @@
 import  express from "express";
+import rutas from "./routes/routes.js";
 //import Contenedor from "./Contenedor.js";
 //import Tablero from "./Tablero.js";
 import { Server } from "socket.io";
@@ -34,6 +35,7 @@ const io = new Server(httpServer);
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use('/api/', rutas);
 
 //### MANEJO DE SESIÓN ###
 app.use(cookieParser());
@@ -48,6 +50,8 @@ app.use(session({
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+let actual_username = "Sesión no iniciada";
 
 
 //### Conexion a MongoDB ###
@@ -88,7 +92,6 @@ passport.use("login", new localStrategy((username, password, done) => {
 			UsuarioSchema.findOne(
 				{
 					username,
-				
 				},
 				(err, user) => {
 					if (err) {
@@ -112,8 +115,10 @@ passport.use("login", new localStrategy((username, password, done) => {
 
 //### SERIALIZACIÓN ###
 
-passport.serializeUser((usuario, done) => { done(null, usuario._id);});
-passport.deserializeUser((id, done) => { UsuarioSchema.findById(id, done);});
+passport.serializeUser((usuario, done) => { 
+	done(null, usuario._id);});
+passport.deserializeUser((id, done) => { 
+	UsuarioSchema.findById(id, done);});
 
 app.use(express.static("public"));
 
@@ -160,6 +165,19 @@ app.get("/login-error", (req, res) => {
 	res.render("login-error");
 });
 
+app.get("/info", (req, res) => {
+	res.render("info",
+		{
+			argumentos_de_entrada: process.argv.slice(2),
+			nombre_plataforma: process.platform,
+			version_node: process.version,
+			memoria_reservada: process.memoryUsage().rss,
+			path_ejecucion: process.execPath,
+			process_id: process.pid,
+			carpeta_proyecto: process.cwd()
+		});
+});
+
 app.get("/register", (req, res) => {
 	res.render("register");
 });
@@ -203,6 +221,8 @@ io.on("connection", async (socket) => {
 	//socket.emit("carga_usuario", );
 
     socket.emit("carga_inventario", inventario);
+	socket.emit("carga_usuario", actual_username);
+	
 
     //socket.emit("carga_chat", await tablero.getAll());
 

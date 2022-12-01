@@ -16,7 +16,7 @@ function render_nombreUsuario(data){
     const html = 
         `
         <h2 class="text-2xl font-bold">
-            ${data.nombreUsuario}
+            ${data}
         </h2>
         `;
     
